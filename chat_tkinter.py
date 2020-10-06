@@ -67,12 +67,14 @@ def click1():
     global entry1,entry2
     win1=Toplevel(win)
     win1.geometry("700x250")
-    uname= Label(win1,compound=LEFT,text= 'Username:', height="2", width="30").grid(row=1, column=0, sticky=W)
-    psswd= Label(win1,compound=LEFT,text= 'Password:', height="2", width="30").grid(row=2, column=0, sticky=W)
+    win1.configure(bg = "azure2")
+    label= Label(win1,compound=CENTER,text="Register",font = 'Arial 20 bold',fg = 'Blue',bg='azure2').grid(row=0, column=0)
+    uname= Label(win1,compound=LEFT,text= 'Username:',bg = "azure2").grid(row=1, column=0, sticky=E)
+    psswd= Label(win1,compound=LEFT,text= 'Password:',bg = "azure2").grid(row=2, column=0, sticky=E)
     entry1= Entry(win1,width=20)
     entry2= Entry(win1,width=20)
-    entry1.grid(row=1, column=1)
-    entry2.grid(row=2, column=1)
+    entry1.grid(row=1, column=1,sticky=W)
+    entry2.grid(row=2, column=1,sticky=W)
     b1= Button(win1, width=7,text="ok",command=submit).grid(row=4, column=0, sticky=W)
     b2= Button(win1, width=7,text="cancel",command=clear).grid(row=4, column=1, sticky=W)
 
@@ -81,12 +83,14 @@ def click2():
     global entry1,entry2
     win2= Toplevel(win)  
     win2.geometry("700x250")
-    uname= Label(win2,compound=LEFT,text= 'Username:').grid(row=1, column=0, sticky=W)
-    psswd= Label(win2,compound=LEFT,text= 'Password:').grid(row=2, column=0, sticky=W)
+    win2.configure(bg = "azure2")
+    label= Label(win2,compound=CENTER,text="Login",font = 'Arial 20 bold',fg = 'Blue',bg='azure2').grid(row=0, column=0)
+    uname= Label(win2,compound=LEFT,text= 'Username:',bg = "azure2").grid(row=1, column=0, sticky=E)
+    psswd= Label(win2,compound=LEFT,text= 'Password:',bg = "azure2").grid(row=2, column=0, sticky=E)
     entry1= Entry(win2,width=20)
     entry2= Entry(win2,width=20)
-    entry1.grid(row=1, column=1)
-    entry2.grid(row=2, column=1)
+    entry1.grid(row=1, column=1,sticky=W)
+    entry2.grid(row=2, column=1,sticky=W)
     b1= Button(win2, width=7,text="ok",command=login_auth).grid(row=4, column=0, sticky=W)
     b2= Button(win2, width=7,text="cancel",command=clear).grid(row=4, column=1, sticky=W)
 
@@ -96,10 +100,11 @@ def main():
     win = Tk()            #calling window creating function (instance)
     win.title("chat")  
     win.geometry("700x250")          #name of the window
-    label= Label(win,compound=CENTER,text="hello, welcome to chat application",width=40, height=1, bg="blue")
+    win.configure(bg = "azure2")
+    label= Label(win,compound=CENTER,text="hello, welcome to chat application",font = 'Arial 20 bold',fg = 'Blue',bg='azure2')
     label.pack()
-    b1= Button(win,text="Register",command=click1, height=1, width=10, bg="blue").pack()
-    b2= Button(win,text="Login",command=click2, height=1, width=10, bg="blue").pack()
+    b1= Button(win,text="Register",command=click1, height=1, width=10,font = 'Arial',fg = 'Blue',bg='azure2').pack()
+    b2= Button(win,text="Login",command=click2, height=1, width=10,font = 'Arial',fg = 'Blue',bg='azure2').pack()
     global login_cred
     login_cred={}
     
